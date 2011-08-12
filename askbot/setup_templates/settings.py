@@ -166,6 +166,8 @@ INSTALLED_APPS = (
     'followit',
     #'avatar',#experimental use git clone git://github.com/ericflo/django-avatar.git$
     #requires setting of MEDIA_ROOT and MEDIA_URL
+    'askbot.deps.speeqeweb.speeqe',
+    'askbot.deps.speeqeweb',
 )
 
 
@@ -215,3 +217,9 @@ djcelery.setup_loader()
 
 CSRF_COOKIE_NAME = 'askbot_scrf'
 CSRF_COOKIE_DOMAIN = ''#enter domain name here - e.g. example.com
+
+# import settings for speeqe
+try:
+    from speeqeweb.local_settings import *
+except ImportError, exp:
+    pass

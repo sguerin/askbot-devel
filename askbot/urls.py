@@ -298,3 +298,8 @@ if 'avatar' in settings.INSTALLED_APPS:
             name='avatar_render_primary'
         ),
     )
+
+if 'askbot.deps.speeqeweb' in settings.INSTALLED_APPS:
+    urlpatterns += (
+        url(r'^%s' % _('chat/'), include('askbot.deps.speeqeweb.urls_in_askbot')),
+    )
